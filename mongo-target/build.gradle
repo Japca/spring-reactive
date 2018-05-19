@@ -11,7 +11,8 @@ buildscript {
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
+apply plugin: 'scala'
+apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
@@ -24,12 +25,31 @@ targetCompatibility = 8
 repositories {
     mavenCentral()
 }
-
 dependencies {
 //    compile('org.springframework:spring-webflux')
     compile('org.springframework.boot:spring-boot-starter-data-mongodb')
     compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.scala-lang:scala-library:2.12.3')
+    compile group: 'io.netty', name: 'netty-all', version: '4.1.25.Final'
     runtime('org.springframework.boot:spring-boot-devtools')
     compileOnly('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile group: 'io.gatling.highcharts', name: 'gatling-charts-highcharts', version: '2.3.1'
+}
+
+task gatling(type: JavaExec) {
+    dependsOn testClasses
+    description = "Gatling test"
+    group = "gatling-test"
+    classpath = sourceSets.test.runtimeClasspath
+    jvmArgs = [
+            "-Dgatling.core.directory.binaries=${sourceSets.test.output.classesDir.toString()}"
+    ]
+    main = "io.gatling.app.Gatling"
+    args = [
+            "--simulation", "com.japca.mongo.GatlingSimulationTest",
+            "--results-folder", "${buildDir}/gatling-results",
+            "--binaries-folder", sourceSets.test.output.classesDir.toString(),
+            "--bodies-folder", sourceSets.test.resources.srcDirs.toList().first().toString() + "/gatling/bodies",
+    ]
 }

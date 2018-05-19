@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * Created by Jakub Krhovják on 5/10/18.
  */
@@ -19,13 +21,13 @@ public class MongoController {
 	@Autowired
 	private MongoDao mongoDao;
 
-	@PostMapping("/item")
-	public void saveItem(@RequestBody Record record) {
+	@PostMapping("/record")
+	public void saveRecord(@RequestBody Record record) {
 		mongoDao.save(record);
 	}
 
-	@GetMapping("/item/{id}")
-	public Record getItem(@PathVariable("id") Long id) {
+	@GetMapping("/record/{id}")
+	public List<Record> getRecord(@PathVariable("id") Long id) {
          return mongoDao.findByIdentifier(id);
 	}
 
