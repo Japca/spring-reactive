@@ -18,15 +18,15 @@ apply plugin: 'io.spring.dependency-management'
 group = 'com.japca'
 version = '0.0.1-SNAPSHOT'
 
-sourceCompatibility = 9
-targetCompatibility = 9
+sourceCompatibility = 8
+targetCompatibility = 8
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile('org.springframework:spring-webflux')
+//    compile('org.springframework:spring-webflux')
     compile('org.springframework.boot:spring-boot-starter-data-mongodb')
     compile('org.springframework.boot:spring-boot-starter-web')
     runtime('org.springframework.boot:spring-boot-devtools')

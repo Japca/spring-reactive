@@ -1,5 +1,6 @@
 package com.japca.mongo;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -11,10 +12,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
 @Data
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class Record {
 
-	public Record(String name, int age) {
+	public Record(Long identifier, String name, String description, int age) {
+		this.identifier = identifier;
 		this.name = name;
+		this.description = description;
 		this.age = age;
 	}
 
@@ -22,10 +26,12 @@ public class Record {
 	private String id;
 
 	@Indexed
+	private Long identifier;
+
 	private String name;
 
-	@Indexed
-	private int age;
+	private String description;
 
+	private int age;
 
 }
