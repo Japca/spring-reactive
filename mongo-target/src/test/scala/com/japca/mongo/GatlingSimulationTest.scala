@@ -13,7 +13,7 @@ import scala.concurrent.duration.{Duration, FiniteDuration}
 
 class GatlingSimulationTest extends Simulation {
 
-  val scn = scenario("AddAndFindPersons").repeat(1000, "n") {
+  val scn = scenario("AddAndFindPersons").repeat(100, "n") {
         exec(
           http("saveRecord")
             .post("http://localhost:8280/record")
@@ -21,7 +21,7 @@ class GatlingSimulationTest extends Simulation {
             .body(StringBody("""{"identifier":"${n}","name":"Lojza_${n}","description":"description_${n}", "age":"${n}"} """))
             .check(status.is(200))
         ).pause(Duration.apply(100, TimeUnit.MILLISECONDS))
-  }.repeat(1000, "n") {
+  }.repeat(100, "n") {
         exec(
           http("getRecord")
             .get("http://localhost:8280/record/${n}")
