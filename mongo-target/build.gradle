@@ -30,13 +30,13 @@ repositories {
 }
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-undertow'
-//    compile('org.springframework:spring-webflux')
+    compile('org.springframework:spring-webflux')
     compile('org.springframework.boot:spring-boot-starter-data-mongodb')
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.scala-lang:scala-library:2.12.3')
     compile group: 'io.netty', name: 'netty-all', version: '4.1.25.Final'
     runtime('org.springframework.boot:spring-boot-devtools')
-    compileOnly('org.projectlombok:lombok')
+    compile('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile group: 'io.gatling.highcharts', name: 'gatling-charts-highcharts', version: '2.3.1'
 }
