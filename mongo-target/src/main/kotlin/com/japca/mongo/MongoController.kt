@@ -2,6 +2,7 @@ package com.japca.mongo
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
+import reactor.core.publisher.Flux
 
 /**
  * Created by Jakub Krhovják on 5/10/18.
@@ -20,7 +21,7 @@ class MongoController {
     }
 
     @GetMapping("/record/{id}")
-    fun getRecord(@PathVariable("id") id: Long): List<Record> {
+    fun getRecord(@PathVariable("id") id: Long): Flux<Record> {
         return mongoDao.findByIdentifier(id)
     }
 
