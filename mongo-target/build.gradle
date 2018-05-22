@@ -14,7 +14,7 @@ buildscript {
 }
 
 configurations {
-//    compile.exclude module: 'spring-boot-starter-tomcat'
+    compile.exclude module: 'spring-boot-starter-tomcat'
 }
 
 apply plugin: 'java'
@@ -47,7 +47,6 @@ repositories {
 }
 
 dependencies {
-    compile 'org.springframework.boot:spring-boot-starter-undertow'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-webflux'
     compile('org.springframework.boot:spring-boot-starter-data-mongodb-reactive')
 
