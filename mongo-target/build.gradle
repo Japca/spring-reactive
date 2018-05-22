@@ -47,16 +47,12 @@ repositories {
 }
 
 dependencies {
-
     compile 'org.springframework.boot:spring-boot-starter-undertow'
-    compile('org.springframework:spring-webflux')
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-webflux'
     compile('org.springframework.boot:spring-boot-starter-data-mongodb-reactive')
-//    compile('org.springframework.boot:spring-boot-starter-web')
+
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
-//    compile 'org.mongodb:mongodb-driver-reactivestreams:1.8.0'
-
-//    runtime('org.springframework.boot:spring-boot-devtools')
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('org.jetbrains.kotlin:kotlin-test')
