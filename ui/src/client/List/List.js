@@ -7,7 +7,7 @@ import classNames from 'classnames'
 class List extends Component {
 
     render() {
-        console.info('Test component')
+        console.info('List')
         let items = ['item1', 'item2', 'item3', 'item4']
         return (
             <div styleName='list-container'>
@@ -15,7 +15,6 @@ class List extends Component {
             </div>
         )
     }
-
 }
 
 
