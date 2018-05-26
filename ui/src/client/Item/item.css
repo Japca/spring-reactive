@@ -1,0 +1,30 @@
+.item-container {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-evenly;
+    /*align-content:*/
+    /*flex-flow: ;*/
+
+    margin: 10px 10px 0 10px;
+    background: gainsboro;
+    height: 6%;
+}
+
+.item-container > * {
+    margin: 5px 0 5px 0;
+}
+
+.item-left {
+    /*flex-grow: 0.2;*/
+    flex-basis: 25%;
+    background: aliceblue;
+}
+
+.item-right {
+    /*flex-grow: 0.7;*/
+    /*flex-shrink: ;ex*/
+    flex-basis: 70%;
+    /*align-self:flex-end;*/
+
+    background: darkgrey;
+}
