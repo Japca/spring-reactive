@@ -1,18 +1,21 @@
-import React from 'react'
+import React,{ Component }from 'react'
 import CSSModules from 'react-css-modules'
-import style from './drop.css'
+import styles from './drop.css'
 
-const Drop = () => {
+@CSSModules(styles, {allowMultiple:true})
+export default class Drop extends Component {
 
-    return (
-        <div styleName="drop-container">
-            <div>
-                Drop
+    render() {
+        return (
+            <div styleName="drop-container">
+                <div>
+                    Drop
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
-export default CSSModules(Drop, style);
+
 
 

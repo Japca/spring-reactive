@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import CSSModules from 'react-css-modules'
-import style from './item.css'
+import styles from './item.css'
 
-
+@CSSModules(styles, {allowMultiple:true})
 class Item extends Component {
 
     render() {
@@ -15,5 +15,5 @@ class Item extends Component {
     }
 }
 
-export default CSSModules(Item, style);
+export default Item;
 
