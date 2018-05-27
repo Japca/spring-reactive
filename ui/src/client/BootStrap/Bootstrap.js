@@ -13,6 +13,8 @@ const styles = {
         height: 48,
         padding: '0 30px',
         boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .30)',
+        textTransform: 'none',
+        
     },
 };
 
@@ -26,7 +28,7 @@ function Bootstrap(props)  {
 
         return (
             <div>
-                <Button className={props.classes.button}><Star/>Button</Button>
+                <Button className={props.classes.button}><Star/>Touch</Button>
             </div>
 
         )
