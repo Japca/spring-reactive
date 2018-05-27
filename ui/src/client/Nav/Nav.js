@@ -8,6 +8,7 @@ export const ROOT = '/'
 export const LIST = '/list'
 export const DROP = '/drop'
 export const MODAL = '/modal'
+export const BOOT = '/Bootstrap'
 
 @CSSModules(styles, {allowMultiple:true})
 class Nav extends Component {
@@ -20,6 +21,7 @@ class Nav extends Component {
                 <Link to={LIST}>List</Link>
                 <Link to={DROP}>Drop</Link>
                 <Link to={MODAL}>Modal</Link>
+                <Link to={BOOT}>Bootstrap</Link>
             </div>
         );
     }
